@@ -5,6 +5,7 @@ import { App } from './App';
 
 ReactDOM.render(
         <>
-            <GlobalStyles /><App />
+            <GlobalStyles />
+            <App />
         </>
     , document.getElementById('root'));
