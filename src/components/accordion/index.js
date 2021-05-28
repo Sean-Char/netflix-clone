@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState, useContext, createContext } from 'react'
 import { Body, Title, Header, Container, Inner, Item, Frame } from './styles/accordion'
+
+const toggleContext = createContext();
 
 export default function Accordion({ children, ...restProps }) {
     return (
@@ -14,7 +16,11 @@ Accordion.Frame = function AccordionFrame({ children, ...restProps }) {
 }
 
 Accordion.Item = function AccordionItem({ children, ...restProps }) {
-    return <Item {...restProps}>{children}</Item>
+    const [toggleShow, setToggleShow] = useState(false)
+
+    return  <toggleContext.Provider value={{ toggleShow, setToggleShow}}>
+                <Item {...restProps}>{children}</Item>
+            </toggleContext.Provider>       
 }
 
 Accordion.Title = function AccordionTitle({ children, ...restProps }) {
@@ -22,9 +28,21 @@ Accordion.Title = function AccordionTitle({ children, ...restProps }) {
 }
 
 Accordion.Header = function AccordionHeader({ children, ...restProps }) {
-    return <Header {...restProps}>{children}</Header>;
+    const {toggleShow, setToggleShow} = useContext(toggleContext)
+
+    return (
+        <Header {...restProps} onClick={() => setToggleShow(!toggleShow)}>
+            {children}
+            {toggleShow ? (
+                <img src="/images/icons/close-slim.png" alt="Close" />
+            ) : (
+                <img src="/images/icons/add.png" alt="Open" />
+            )}
+        </Header>
+    )
 }
 
 Accordion.Body = function AccordionBody({ children, ...restProps }) {
-    return <Body {...restProps}>{children}</Body>;
+    const {toggleShow} = useContext(toggleContext)
+    return toggleShow ? <Body {...restProps}>{children}</Body> : null;
 }
