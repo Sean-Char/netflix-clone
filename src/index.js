@@ -5,12 +5,7 @@ import { App } from './App';
 import { FirebaseContext } from './context/firebase';
 
 const config = {
-    apiKey: '',
-    authDomain: '',
-    projectId: '',
-    storageBucket: '',
-    messagingSenderId: '1',
-    appId: ''
+    
 };
 
 const firebase = window.firebase.initializeApp(config);
