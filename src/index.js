@@ -5,7 +5,7 @@ import { App } from './App';
 import { FirebaseContext } from './context/firebase';
 
 const config = {
-    
+   
 };
 
 const firebase = window.firebase.initializeApp(config);
