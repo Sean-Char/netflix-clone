@@ -16,7 +16,6 @@ const config = {
 };
 
 const firebase = window.firebase.initializeApp(config);
-console.log(window.location.href)
 
 ReactDOM.render(
         <>
