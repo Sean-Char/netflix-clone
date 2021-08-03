@@ -20,13 +20,13 @@ export function BrowseContainer({ slides }) {
         displayName: "Sean",
         photoURL: "1"
     };
-    
+  
     useEffect(() => {
         setTimeout(() => {
             setLoading(false)
         }, 3000);
     }, [user])
-
+  
     useEffect(() => {
         setSlideRows(slides[category]);
     }, [slides, category])
