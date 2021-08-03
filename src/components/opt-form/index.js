@@ -14,7 +14,7 @@ OptForm.Input = function OptFormInput({ ...restProps }) {
 OptForm.Button = function OptFormButton({ children, ...restProps }) {
     return (
         <Button {...restProps}>
-            {children} <img src="https://sean-char.github.io/netflix-clone/images/icons/chevron-right.png" alt="Try Now" />
+            {children} <img src="/images/icons/chevron-right.png" alt="Try Now" />
         </Button>
     )
 }
